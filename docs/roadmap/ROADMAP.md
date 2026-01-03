@@ -85,39 +85,37 @@ project-13-futbl/
 | Repository | Stars | Focus |
 |------------|-------|-------|
 | ultralytics/ultralytics | 50,600 | YOLO models |
-| roboflow/supervision | 36,200 | CV utilities |
 | mikel-brostrom/boxmot | 7,900 | Multi-tracker |
-| roboflow/sports | 4,800 | Sports CV |
-| abdullahtarek/football_analysis | 855 | Football analysis |
 | SoccerNet/sn-gamestate | 355 | Complete pipeline |
 | mkoshkina/jersey-number-pipeline | 51 | Jersey OCR |
+| abdullahtarek/football_analysis | 855 | Football analysis |
 
 ---
 
 ## 3. Feature Comparison Matrix
 
-| Feature | project-13-futbl | roboflow/sports | SoccerNet | abdullahtarek |
-|---------|-----------------|-----------------|-----------|---------------|
+| Feature | soccer-sight | SoccerNet | abdullahtarek |
+|---------|--------------|-----------|---------------|
 | **Detection** |
-| YOLO Version | 11l | v8 | v11 | v5 |
-| Person Detection | YES | YES | YES | YES |
-| Ball Detection | YES | YES | YES | YES |
+| YOLO Version | 11l | v11 | v5 |
+| Person Detection | YES | YES | YES |
+| Ball Detection | YES | YES | YES |
 | **Tracking** |
-| ByteTrack | YES | YES | NO | YES |
-| StrongSORT | NO | NO | YES | NO |
-| BoT-SORT | NO | NO | NO | NO |
+| ByteTrack | YES | NO | YES |
+| StrongSORT | NO | YES | NO |
+| BoT-SORT | YES | NO | NO |
 | **Team Classification** |
-| HSV Color | YES | NO | NO | NO |
-| KMeans Clustering | NO | NO | NO | YES |
-| SigLIP + UMAP | NO | YES | NO | NO |
+| HSV Color | YES | NO | NO |
+| KMeans Clustering | YES | NO | YES |
+| SigLIP + UMAP | YES | NO | NO |
 | **Jersey OCR** |
-| EasyOCR | YES | NO | NO | NO |
-| MMOCR | NO | NO | YES | NO |
-| PARSeq | NO | NO | NO | NO |
+| SoccerNet OCR | YES | YES | NO |
+| EasyOCR | YES | NO | NO |
+| PARSeq | YES | NO | NO |
 | **Analytics** |
-| Speed Calculation | NO | NO | NO | YES |
-| RADAR View | NO | YES | YES | NO |
-| Web UI | YES | NO | NO | NO |
+| Speed Calculation | NO | NO | YES |
+| RADAR View | NO | YES | NO |
+| Web UI | YES | NO | NO |
 
 ---
 
@@ -323,8 +321,6 @@ Player Crops → SigLIP Model → 768-dim embedding → UMAP (3-dim) → KMeans 
 | Repository | Stars | URL |
 |------------|-------|-----|
 | ultralytics/ultralytics | 50.6k | https://github.com/ultralytics/ultralytics |
-| roboflow/supervision | 36.2k | https://github.com/roboflow/supervision |
-| roboflow/sports | 4.8k | https://github.com/roboflow/sports |
 | mikel-brostrom/boxmot | 7.9k | https://github.com/mikel-brostrom/boxmot |
 | SoccerNet/sn-gamestate | 355 | https://github.com/SoccerNet/sn-gamestate |
 
@@ -340,14 +336,13 @@ Player Crops → SigLIP Model → 768-dim embedding → UMAP (3-dim) → KMeans 
 | Dataset | Samples | URL |
 |---------|---------|-----|
 | SoccerNet Jersey | 2,853 tracklets | https://github.com/SoccerNet/sn-jersey |
-| Roboflow Football | 4,932 images | https://universe.roboflow.com/roboflow-jvuqo/football-players-detection-3zvbc |
 
 ### Tutorials
 
 | Resource | URL |
 |----------|-----|
-| Roboflow Football Tracking | https://blog.roboflow.com/track-football-players/ |
 | Ultralytics Tracking Docs | https://docs.ultralytics.com/modes/track/ |
+| SoccerNet Challenge | https://www.soccer-net.org/ |
 
 ---
 

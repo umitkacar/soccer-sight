@@ -16,7 +16,7 @@ Soccer Sight is a computer vision system that tracks football players in real-ti
 
 | Feature | Technology | Accuracy |
 |---------|------------|----------|
-| **Player Detection** | YOLO11 + Roboflow | ~95% |
+| **Player Detection** | YOLO11 | ~95% |
 | **Multi-Object Tracking** | BoT-SORT | Robust |
 | **Jersey Number OCR** | SoccerNet PARSeq | 92% |
 | **Team Classification** | SigLIP + UMAP | ~95% |
@@ -33,7 +33,7 @@ Soccer Sight is a computer vision system that tracks football players in real-ti
                               ▼
 ┌─────────────────────────────────────────────────────────────┐
 │                  YOLO11 Player Detection                     │
-│                    (Roboflow API)                            │
+│                   (Local Inference)                          │
 └─────────────────────────────────────────────────────────────┘
                               │
                               ▼
@@ -64,7 +64,6 @@ Soccer Sight is a computer vision system that tracks football players in real-ti
 
 - Python 3.9+
 - CUDA-capable GPU (recommended)
-- Roboflow API key
 
 ### Installation
 
@@ -84,11 +83,15 @@ pip install -r requirements.txt
 
 ### Configuration
 
-Create `.env` file:
+Create `.env` file (copy from `.env.example`):
 
 ```env
-ROBOFLOW_API_KEY=your_api_key_here
-ROBOFLOW_MODEL=football-players-detection-3zvbc/4
+# YOLO Detection
+YOLO_MODEL=yolo11l.pt
+DETECTION_CONFIDENCE=0.5
+
+# OCR Settings
+OCR_CONFIDENCE=0.5
 ```
 
 ### Run
@@ -110,7 +113,7 @@ soccer-sight/
 ├── config.py              # Configuration management
 │
 ├── detectors/             # Player detection
-│   └── roboflow_detector.py
+│   └── __init__.py        # Detection dataclasses
 │
 ├── trackers/              # Multi-object tracking
 │   └── tracker_factory.py
@@ -157,16 +160,14 @@ soccer-sight/
 
 ### Detection (YOLO11)
 
-Uses Roboflow-hosted YOLO11 model for player detection:
+Uses Ultralytics YOLO11 for player detection:
 
 ```python
-from detectors.roboflow_detector import RoboflowDetector
+from ultralytics import YOLO
 
-detector = RoboflowDetector(
-    api_key="your_key",
-    model_id="football-players-detection-3zvbc/4"
-)
-detections = detector.detect(frame)
+model = YOLO("yolo11l.pt")
+results = model(frame)
+detections = results[0].boxes
 ```
 
 ### Tracking (BoT-SORT)
@@ -276,7 +277,7 @@ See [docs/roadmap/ROADMAP.md](docs/roadmap/ROADMAP.md) for detailed development 
 ## References
 
 - [SoccerNet Jersey Number Recognition](https://github.com/SoccerNet/sn-jersey)
-- [Roboflow Sports](https://github.com/roboflow/sports)
+- [Ultralytics YOLO11](https://docs.ultralytics.com/)
 - [SigLIP Vision-Language Model](https://arxiv.org/abs/2303.15343)
 - [BoT-SORT Tracker](https://github.com/NirAharon/BoT-SORT)
 

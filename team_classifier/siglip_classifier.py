@@ -4,7 +4,7 @@ SigLIP + UMAP Team Classifier.
 Uses SigLIP vision encoder to extract rich embeddings,
 then UMAP for dimensionality reduction and clustering.
 
-This is the state-of-the-art approach used by Roboflow Sports.
+This is the state-of-the-art approach for team classification.
 
 Accuracy: ~95%
 Speed: Medium (50ms per crop on GPU, 200ms on CPU)

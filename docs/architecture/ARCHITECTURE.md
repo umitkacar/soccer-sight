@@ -29,7 +29,8 @@ Soccer Sight is a modular computer vision pipeline for real-time football player
 
 ```
 ┌─────────────────────────────────────┐
-│      Roboflow YOLO11 Detector       │
+│        YOLO11 Player Detector       │
+│         (Local Inference)           │
 ├─────────────────────────────────────┤
 │  Input:  BGR frame (1920x1080)      │
 │  Output: List of detections         │
@@ -159,7 +160,7 @@ Video Frame
 ```
 app.py
   └── camera.py
-        ├── detectors/roboflow_detector.py
+        ├── detectors/__init__.py
         ├── trackers/tracker_factory.py
         ├── ocr/soccernet_ocr.py
         │     └── ocr/base.py
@@ -176,8 +177,8 @@ app.py
 
 | Variable | Description | Required |
 |----------|-------------|----------|
-| `ROBOFLOW_API_KEY` | Roboflow API key | Yes |
-| `ROBOFLOW_MODEL` | Model ID | Yes |
+| `YOLO_MODEL` | YOLO model path | No (default: yolo11l.pt) |
+| `DETECTION_CONFIDENCE` | Detection threshold | No (default: 0.5) |
 | `FLASK_SECRET_KEY` | Session secret | No |
 
 ### Config Classes

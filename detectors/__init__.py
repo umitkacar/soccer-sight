@@ -2,13 +2,20 @@
 Detection modules for football player tracking.
 
 Available detectors:
-- RoboflowDetector: Cloud-based detection with correct football classes
+- YOLO11: Local inference for player detection
 """
 
-from .roboflow_detector import RoboflowDetector, Detection, create_roboflow_detector
+from dataclasses import dataclass
+from typing import List, Tuple
+
+@dataclass
+class Detection:
+    """Single detection result."""
+    bbox: Tuple[int, int, int, int]  # x1, y1, x2, y2
+    confidence: float
+    class_id: int
+    class_name: str
 
 __all__ = [
-    'RoboflowDetector',
-    'Detection',
-    'create_roboflow_detector'
+    'Detection'
 ]
