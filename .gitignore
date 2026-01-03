@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Video files (large)
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.wmv
+*.flv
+*.webm
+videos/
+
+# Uploaded/temporary files
+uploads/
+
+# Model files (large - 364MB+)
+*.pt
+*.pth
+*.onnx
+models/*.pt
+models/*.pth
+models/*.onnx
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+
+# Debug/temp
+ocr_debug/
+ocr_benchmark/
+*.log
+
+# Compass artifacts (temp)
+compass_artifact_*.md
+
+# Keep test images for OCR benchmark (small files)
+!scripts/test_images/

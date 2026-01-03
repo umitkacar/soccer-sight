@@ -1,0 +1,25 @@
+# BoT-SORT Configuration for Football Player Tracking
+# ReID enabled for better jersey differentiation (CPU mode)
+
+tracker_type: botsort
+
+# Detection thresholds
+track_high_thresh: 0.3      # First association threshold
+track_low_thresh: 0.1       # Second association (lenient)
+new_track_thresh: 0.6       # New track initialization
+
+# Track buffer - frames to keep lost tracks
+track_buffer: 90            # 3 seconds at 30fps
+
+# Matching
+match_thresh: 0.7           # IoU matching threshold
+fuse_score: true            # Fuse confidence with IoU
+
+# Global Motion Compensation (camera movement)
+gmc_method: sparseOptFlow   # CPU-friendly optical flow
+
+# ReID (Re-Identification) - ENABLED!
+with_reid: true             # Enable appearance-based matching
+model: auto                 # Native YOLO features (minimal overhead)
+proximity_thresh: 0.5       # Min IoU for ReID match
+appearance_thresh: 0.25     # Min appearance similarity

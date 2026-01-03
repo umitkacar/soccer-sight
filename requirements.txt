@@ -1,0 +1,22 @@
+# Web Framework
+flask>=2.3.0
+
+# Computer Vision & ML
+ultralytics>=8.0.0
+opencv-python>=4.8.0
+numpy>=1.24.0
+supervision>=0.16.0
+Pillow>=10.0.0
+
+# OCR - Multiple engines for ensemble
+easyocr>=1.7.0
+paddleocr>=2.7.0  # Fallback OCR
+# mmocr>=1.0.0  # Optional: High accuracy (pip install mmocr mmcv mmdet)
+# torch>=2.0.0  # Optional: For PARSeq SOTA model
+
+# Configuration
+python-dotenv>=1.0.0
+
+# Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
